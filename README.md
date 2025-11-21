@@ -102,5 +102,5 @@ plane.run()
 
 # Contributions
 Tyler Webb - Plane Class and methods, README.md description
-
+Brennan Cannaday - Methodology, front to back and back to front loading testing, report 
 Yeyao Zhou – Southwest and Steffen Boarding strategy research, implementation, and performance analysis
