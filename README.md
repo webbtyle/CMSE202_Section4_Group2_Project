@@ -72,4 +72,5 @@ measure_strategy(steffen_boarding, n=100) # can replace steffen_boarding by any 
 
 # Contributions
 Tyler Webb - Plane Class and methods, README.md description
+
 Yeyao Zhou – Southwest and Steffen Boarding strategy research, implementation, and performance analysis
