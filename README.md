@@ -142,10 +142,10 @@ This allows quick comparison of boarding times for different plane sizes without
 --- 
 
 # Contributions
-Tyler Webb - Plane Class and initial methods (Yeyao redid the step function, and Brennan added time to the run), README.md description, Model Idea, Simulation Settup, and Difficulties and Limitations in the final presentation.
+Tyler Webb - Plane Class and initial methods (Yeyao redid the step function, and Brennan added time to the run), README.md description, Model Idea, Simulation Setup, and Difficulties and Limitations in the final presentation.
 
 Brennan Cannaday - Methodology, front to back and back to front loading testing and sim functions, report, bar chart visualization
 
 Yeyao Zhou – Southwest and Steffen Boarding strategy research, implementation, and performance analysis
 
-Leishaa Karaka - Wilma Method, Seat randomizer, Strategy results- explaination, analysis and consluion, README.md Scaling the Simulation to Different Aircraft Sizes and report.
+Leishaa Karaka - WilMA method, seat randomizer, strategy results explanation, analysis and conclusion, README.md section on scaling the simulation to different aircraft sizes, added code descriptions/documentation, report writing, and final presentation outline and slide bullet points.
