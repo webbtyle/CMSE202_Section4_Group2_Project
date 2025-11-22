@@ -1,13 +1,12 @@
 # CMSE202_Section4_Group2_Project.
-Question: What is the best strategy to board passengers on a plane?
-Project Name: Passenger Plane Boarding Efficiency
-Group Members: Tyler Webb, Brennan Cannaday, Yeyao Zhou, Leishaa Karaka
+## Question: What is the best strategy to board passengers on a plane?
+### Project Name: Passenger Plane Boarding Efficiency
+### Group Members: Tyler Webb, Brennan Cannaday, Yeyao Zhou, Leishaa Karaka
 
 
 ---
 # Overview
 This project studied airplane boarding efficiency by simulating each of the strategies for how passengers board, and recording how long.completing boarding by each strategy took. A discrete‐step simulation was used to model walking, blocking of aisles, aisle congestion,and delay due to overhead luggage. Used & compared many methodologies - Front-to-Back, Back-to-Front, WILMA, Southwest Open Seating, and the Jason Steffen Method. Multiple runs done to arrive upon which boarding sequence seemed optimal, and which takes least amount of total boarding time.
-
 
 ---
 # Aircraft & Simulation Features
@@ -36,20 +35,20 @@ Each passenger has:
 
 ---
 # Boarding Strategies Implemented
-### ** Front-to-Back (Start from Row 1 to Row 20; from Window, then Middle, finally Aisle)**
+### **Front-to-Back (Start from Row 1 to Row 20; from Window, then Middle, finally Aisle)**
 Seats passengers from the front rows first; within a row, window seats load before middle and aisle.
 
-### ** Back-to-Front (Start from Row 20 to Row 1; from Window, then Middle, finally Aisle)**
+### **Back-to-Front (Start from Row 20 to Row 1; from Window, then Middle, finally Aisle)**
 Seats passengers from the rear first to reduce aisle blocking.
 
-### ** WILMA (from Window, then Middle, finally Aisle)**
+### **WILMA (from Window, then Middle, finally Aisle)**
 All window-seat passengers board first, then middle-seat passengers, then aisle-seat passengers.  
 This minimizes seat-crossing interference.
 
-### ** Southwest Random Seat Assignment**
+### **Southwest Random Seat Assignment**
 Simulates Southwest Airlines’ open seating system by randomly assigning passengers to seats and boarding them in random order.
 
-### ** Jason Steffen Method**
+### **Jason Steffen Method**
 Based on physics research on optimal boarding:
 - from Window, then Middle, finally Aisle
 - Odd rows before even rows
@@ -99,6 +98,47 @@ for p in sw_passengers:
 
 plane.run()
 ```
+---
+### Scaling the Simulation to Different Aircraft Sizes
+```
+>One of the strengths of our boarding model is that it can easily be adapted to represent airplanes of different sizes. The simulation is controlled primarily by the num_rows parameter in the Plane class. By adjusting this parameter, the model automatically recalculates the number of passengers, seat positions, aisle length, and all movement logic.
+
+1. **Changing the Number of Rows**
+
+To run the simulation on a larger or smaller aircraft, simply modify the num_rows argument when creating the Plane object:
+```
+plane = Plane(num_rows=30)   # Example: 30-row aircraft
+passengers = plane.make_passengers()
+
+This automatically updates:
+- Total number of rows
+- Seat count (6 seats per row: A–F)
+- Total passengers (rows × 6)
+- Aisle length and walking behavior
+```
+2. **Running Boarding Strategies on Any Plane Size**
+
+All of our boarding strategies (Front-to-Back, Back-to-Front, WILMA, Southwest, and Steffen) scale automatically because each strategy sorts passengers based on their row and seat values. For example, WILMA on a 45-row aircraft:
+```
+plane = Plane(45)
+passengers = plane.make_passengers()
+
+ordered = wilma_boarding(passengers)
+
+for p in ordered:
+    plane.add_passenger(p)
+
+plane.run()
+```
+3. **Fast Simulations for Larger Aircraft**
+
+High-speed evaluations can also be scaled by passing the row count into measure_strategy():
+```
+measure_strategy(wilma_boarding, n=100, num_rows=45)
+```
+This allows quick comparison of boarding times for different plane sizes without running animations.
+
+--- 
 
 # Contributions
 Tyler Webb - Plane Class and methods, README.md description
@@ -106,3 +146,5 @@ Tyler Webb - Plane Class and methods, README.md description
 Brennan Cannaday - Methodology, front to back and back to front loading testing, report 
 
 Yeyao Zhou – Southwest and Steffen Boarding strategy research, implementation, and performance analysis
+
+Leishaa Karaka - Wilma Method, Seat randomizer, Strategy results- explaination, analysis and consluion, README.md Scaling the Simulation to Different Aircraft Sizes and report.
