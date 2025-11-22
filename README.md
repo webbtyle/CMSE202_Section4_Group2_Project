@@ -100,22 +100,23 @@ plane.run()
 ```
 ---
 ### Scaling the Simulation to Different Aircraft Sizes
-```
->One of the strengths of our boarding model is that it can easily be adapted to represent airplanes of different sizes. The simulation is controlled primarily by the num_rows parameter in the Plane class. By adjusting this parameter, the model automatically recalculates the number of passengers, seat positions, aisle length, and all movement logic.
+
+One of the strengths of our boarding model is that it can easily be adapted to represent airplanes of different sizes. The simulation is controlled primarily by the num_rows parameter in the Plane class. By adjusting this parameter, the model automatically recalculates the number of passengers, seat positions, aisle length, and all movement logic.
 
 1. **Changing the Number of Rows**
 
 To run the simulation on a larger or smaller aircraft, simply modify the num_rows argument when creating the Plane object:
+
 ```
 plane = Plane(num_rows=30)   # Example: 30-row aircraft
 passengers = plane.make_passengers()
-
+```
 This automatically updates:
 - Total number of rows
 - Seat count (6 seats per row: A–F)
 - Total passengers (rows × 6)
 - Aisle length and walking behavior
-```
+
 2. **Running Boarding Strategies on Any Plane Size**
 
 All of our boarding strategies (Front-to-Back, Back-to-Front, WILMA, Southwest, and Steffen) scale automatically because each strategy sorts passengers based on their row and seat values. For example, WILMA on a 45-row aircraft:
