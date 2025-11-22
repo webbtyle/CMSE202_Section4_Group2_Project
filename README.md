@@ -142,7 +142,7 @@ This allows quick comparison of boarding times for different plane sizes without
 --- 
 
 # Contributions
-Tyler Webb - Plane Class and methods, README.md description
+Tyler Webb - Plane Class and initial methods (Yeyao redid the step function, and Brennan added time to the run), README.md description, Model Idea, Simulation Settup, and Difficulties and Limitations in the final presentation.
 
 Brennan Cannaday - Methodology, front to back and back to front loading testing, report 
 
