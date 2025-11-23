@@ -178,7 +178,7 @@ We found developing our airplane boarding simulation to be challenging, and ulti
 # Contributions
 Tyler Webb - Plane Class and initial methods (Yeyao redid the step function, and Brennan added time to the run), README.md description, Model Idea, Simulation Setup, and Difficulties and Limitations in the final presentation.
 
-Brennan Cannaday - Methodology, front to back and back to front loading testing and sim functions, report, bar chart visualization
+Brennan Cannaday - Methodology, front to back and back to front loading testing and sim functions, methods, results, discussion, conclusion of report, bar chart visualization, results in presentation, presentation organization and language editting
 
 Yeyao Zhou - Research, implementation, and performance review of Southwest and Steffen Boarding strategy. In README.md, added new sections (Project Structure, Computational Tools Used), and wrote and organized the Difficulties and Limitations section.
 
