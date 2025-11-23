@@ -3,10 +3,20 @@
 ### Project Name: Passenger Plane Boarding Efficiency
 ### Group Members: Tyler Webb, Brennan Cannaday, Yeyao Zhou, Leishaa Karaka
 
-
 ---
 # Overview
-This project studied airplane boarding efficiency by simulating each of the strategies for how passengers board, and recording how long.completing boarding by each strategy took. A discrete‐step simulation was used to model walking, blocking of aisles, aisle congestion,and delay due to overhead luggage. Used & compared many methodologies - Front-to-Back, Back-to-Front, WILMA, Southwest Open Seating, and the Jason Steffen Method. Multiple runs done to arrive upon which boarding sequence seemed optimal, and which takes least amount of total boarding time.
+This project studied airplane boarding efficiency by simulating each of the strategies for how passengers board, and recording how long.completing boarding by each strategy took. A discrete-step simulation was used to model walking, blocking of aisles, aisle congestion,and delay due to overhead luggage. Used & compared many methodologies - Front-to-Back, Back-to-Front, WILMA, Southwest Open Seating, and the Jason Steffen Method. Multiple runs done to arrive upon which boarding sequence seemed optimal, and which takes least amount of total boarding time.
+
+---
+# Project Structure
+### The repository is organized as follows:
+```
+CMSE202_Section4_Group2_Project/
+│── README.md # Main project documentation
+│── Outline.ipynb # Early planning notes and prototype development
+│── ProjectDiscussionAndPlan.ipynb # Strategy discussion and experimental design
+│── Tyler_Board_Complete.ipynb # Full simulation implementation and final working code
+```
 
 ---
 # Aircraft & Simulation Features
@@ -23,7 +33,7 @@ Each passenger has:
 - **Assigned row (1–20)**
 - **Seat (A–F)**
 - **Carry-on luggage status** (subjectively randomly assigned )
-- **Overhead luggage delay** (randomized instead to have an additional delay of 9–12 seconds) when chosen, you are in control of the plane now make bumpy noises
+- **Overhead luggage delay** (randomized between 9–12 seconds to model realistic baggage loading time.)
 - **Movement rules:** can move *forward*, *left*, or *right*, but **never backwards**
 
 ### **Plane simulation**
@@ -54,6 +64,21 @@ Based on physics research on optimal boarding:
 - Odd rows before even rows
 - Back-to-front sorting within each category  
 Designed to minimize aisle congestion and baggage interference.
+
+---
+# Computational Tools Used
+Our boarding simulation uses a number of different Python libraries and computations:
+- **random** - generates stochastic parts of the simulation, like luggage delay, Southwest-style random assignment of seats, and random passenger behavior when applicable.
+- **time** - controls pacing of visual animation inside run(), allowing frame-by-frame simulation.
+- **matplotlib** – all graphical visualization of plane, passengers, movement:
+    - `matplotlib.pyplot` for preparing figures and animation frames
+    - `Rectangle` and `Patch` to actually draw the plane layout, seats, and as colored objects
+- **IPython.display.clear_output** remove the last frame if we’ve been making steps in the animation, so we see movement step by step/boarding progress
+
+### Computational Techniques:
+- **Discrete-Time Simulation**
+- **Collision & Congestion Handling**
+- **Sort Based Strategy Algorithms** - each boarding style (Front-to-Back, Back-to-Front, WILMA, Steffen, Southwest) is ‘deterministically’ a sorting rule to apply to the entire passenger list.
 
 ---
 # Performance Evaluation Framework
@@ -140,12 +165,21 @@ measure_strategy(wilma_boarding, n=100, num_rows=45)
 This allows quick comparison of boarding times for different plane sizes without running animations.
 
 --- 
+# Difficulties and Limitations
+We found developing our airplane boarding simulation to be challenging, and ultimately simplified the model sufficiently so that there are observable limitations. Some key limitations:
+1. No priority boarding groups (pre-boarding). Our model does not allow for any passengers who would normally board before their general group: elderly passengers, passengers with disabilities, families with infants, premium-status travelers. Having these groups typically cause aisles in actual airports to change their speed patterns significantly.
+2. No cabin class distinctions. Our simulation treats everyone exactly the same: planes typically come with multiple classes (First Class, Business Class, Premium Economy, Economy), and boarding in priority order by cabin makes a huge difference in the order of entry and how congestion forms.
+3. No seat-interference delays inside the row. Passengers in aisle seats must typically stand up for window/midpassenger to let them through to their seat, incurring additional 5–15 seconds of delay.
+4. No overhead bin capacity limits. We assume essentially unlimited overhead space for luggage delays, followed by a rigid block of 12 seconds of for everyone. This isn’t true of actual flights in which overhead bins run out and passengers may have to walk up or back of planes to find space for luggage, creating a major blockage of the aisle.
+5. No group/family boarding behavior. Passengers in our model are acting as independent people. Actual travelers will often board as families and come in typical groups; these groups exhibit waiting and coordination delays, and also exhibit synchronous loading of luggage.
+6. Simplistic aisle congestion depiction. We model the aisle as being occupied by a specific set of discrete cells, with only one person per space, whereas actual passengers exhibit variable personal space practices and can step off the line partially, creating much more complex traffic pattern than a binary occupancy model allows.
 
+---
 # Contributions
 Tyler Webb - Plane Class and initial methods (Yeyao redid the step function, and Brennan added time to the run), README.md description, Model Idea, Simulation Setup, and Difficulties and Limitations in the final presentation.
 
 Brennan Cannaday - Methodology, front to back and back to front loading testing and sim functions, report, bar chart visualization
 
-Yeyao Zhou – Southwest and Steffen Boarding strategy research, implementation, and performance analysis
+Yeyao Zhou - Research, implementation, and performance review of Southwest and Steffen Boarding strategy. In README.md, added new sections (Project Structure, Computational Tools Used), and wrote and organized the Difficulties and Limitations section.
 
 Leishaa Karaka - WilMA method, seat randomizer, strategy results explanation, analysis and conclusion, README.md section on scaling the simulation to different aircraft sizes, added code descriptions/documentation, report writing, and final presentation outline and slide bullet points.
