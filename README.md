@@ -182,4 +182,4 @@ Brennan Cannaday - Methodology, front to back and back to front loading testing 
 
 Yeyao Zhou - Research, implementation, and performance review of Southwest and Steffen Boarding strategy. In README.md, added new sections (Project Structure, Computational Tools Used), and wrote and organized the Difficulties and Limitations section.
 
-Leishaa Karaka - WilMA method, seat randomizer, strategy results explanation, analysis and conclusion, README.md section on scaling the simulation to different aircraft sizes, added code descriptions/documentation, report writing, and final presentation outline and slide bullet points.
+Leishaa Karaka - WilMA method, seat randomizer, strategy results explanation, analysis and conclusion, README.md section on scaling the simulation to different aircraft sizes, added code descriptions/documentation, report writing, and final presentation outline, slide bullet points, interpretation of results.
